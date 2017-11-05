@@ -1,0 +1,13 @@
+{
+  "name": "github-autocomplete",
+  "version": "1.0.0",
+  "description": "A github repository autocompleter",
+  "main": "index.js",
+  "repository": "https://github.com/maxchehab/github-autocomplete",
+  "author": "Max Chehab",
+  "license": "MIT",
+  "dependencies": {
+    "github-api-node": "^0.11.2",
+    "path-to-regexp": "^2.1.0"
+  }
+}
