@@ -9,5 +9,8 @@
   "dependencies": {
     "github-api-node": "^0.11.2",
     "path-to-regexp": "^2.1.0"
+  },
+  "bin": {
+    "github-autocomplete": "index.js"
   }
 }
