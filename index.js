@@ -5,16 +5,15 @@ const ReadLine = require("readline");
 const fs = require("fs");
 const path = require("path");
 
-const readline = ReadLine.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
-
 if (process.argv.length < 3) {
   process.exit();
 }
 
 if (process.argv[2] === "setup") {
+  const readline = ReadLine.createInterface({
+    input: process.stdin,
+    output: process.stdout
+  });
   readline.question(
     "This tool requires a GitHub access token.\nYou can create one here: https://github.com/settings/tokens/new\nToken: ",
     token => {
@@ -49,7 +48,7 @@ if (process.argv[2] === "setup") {
   let keys = re.exec(input);
   if (keys) {
     let username = keys[1];
-    let promise = new Promise((resolve, reject) => {
+    let getRepos = new Promise((resolve, reject) => {
       let user = github.getUser();
       user.userRepos(username, (error, repos) => {
         if (error) reject(error);
@@ -62,7 +61,7 @@ if (process.argv[2] === "setup") {
       });
     });
 
-    promise
+    getRepos
       .then(value => {
         let output = "";
         value.map(
